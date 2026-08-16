@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text About This Property</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-width: 360px;
+  }
+  h1 { font-size: 20px; margin-bottom: 8px; color: #222; }
+  p { color: #666; font-size: 15px; margin-bottom: 24px; }
+  a.button {
+    display: inline-block;
+    background: #1a73e8;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .spinner {
+    margin: 0 auto 16px;
+    width: 28px; height: 28px;
+    border: 3px solid #eee;
+    border-top-color: #1a73e8;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="spinner"></div>
+  <h1>Opening your messages…</h1>
+  <p>If it doesn't open automatically, tap the button below.</p>
+  <a class="button" id="smsLink" href="#">Text Me About This Property</a>
+</div>
+
+<script>
+  // ===== EDIT THIS LINE FOR EACH PROPERTY =====
+  const phoneNumber = "+14047906727";
+  const codeWord = "BASKIN";
+  // ==============================================
+
+  const smsUri = "sms:" + phoneNumber + "?&body=" + encodeURIComponent(codeWord);
+  document.getElementById("smsLink").href = smsUri;
+
+  // Auto-redirect on load
+  window.location.href = smsUri;
+</script>
+</body>
+</html>
